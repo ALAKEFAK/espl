@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[]) {
   FILE *fp1, *fp2;
-  char ch1, ch2, same;
+  int ch1, ch2, same;
   unsigned long l;
 
   if(argc!=3) {
@@ -38,7 +38,7 @@ int main(int argc, char *argv[]) {
       exit(1);
     }
     if(ch1 != ch2) {
-      printf("byte %lu +%u -%u\n", l,ch1,ch2);
+      printf("byte %lu +%x -%x\n", l,ch1,ch2);
       same = 0;
       break;
     }
