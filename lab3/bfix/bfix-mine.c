@@ -42,12 +42,13 @@ int main (int argc, char **argv) {
 		parsediff(line,&current);
 		fseek(input,current.offset,SEEK_SET);
 		char value[1];
-		printf("new: %i  old: %i \n", current.new, current.old);
+		printf("new: %c  old: %c \n", current.new, current.old);
 		if (reverse==1) {		
-			fputc(-current.new,input);
+			fputc(current.new,input);
 		}
 		else
-			fputc(-current.old,input);
+			fputc(current.old,input);
+		fwrite(value,2,1,input);
 		if (verbose==1)
 			printf("a change applied at byte %ld\n", current.offset);		
 	}
